@@ -8,7 +8,7 @@ import Projects from "./pages/Projects";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-neutral-600/30">
+    <main className="flex min-h-screen flex-col items-center justify-between bg-neutral-900">
       <div className="w-3/4 min-h-screen">
         <Navbar />
         <Hero />
