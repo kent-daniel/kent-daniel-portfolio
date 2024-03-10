@@ -13,12 +13,12 @@ const Hero = () => {
       ></div>
       <div className="relative z-10 flex justify-center items-center h-full">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4 drop-shadow-[0px_0px_15px_rgba(100,155,255,0.95)]">
-            Hey 👋, I'm Kent Daniel!
+          <h1 className="text-4xl font-bold mb-4 drop-shadow-0 0 15px rgba(100, 155, 255, 0.95)">
+            Hey 👋, I&apos;m Kent Daniel!
           </h1>
           <p className="text-lg text-gray-300">
-            I'm a proactive software engineer who's always learning and
-            passionate about building quality, scalable code for outstanding
+            I&apos;m a proactive software engineer who&apos;s always learning
+            and passionate about building quality, scalable code for outstanding
             software.
           </p>
         </div>
