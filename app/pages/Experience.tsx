@@ -23,7 +23,7 @@ const Experience = () => {
         </div>
         <div className="inline-block">
           <a
-            href="/KentCV.pdf"
+            href="/Kent_Daniel_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             download="Kent_Daniel_Resume.pdf"
