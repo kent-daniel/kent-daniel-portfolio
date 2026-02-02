@@ -1,18 +1,23 @@
 import React from "react";
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 interface SkillItemProps {
-  icon?: IconDefinition;
+  icon?: React.ReactNode;
   name: string;
 }
 
 const SkillItem: React.FC<SkillItemProps> = ({ icon, name }) => {
   return (
-    <div className="flex items-center">
-      {/* <FontAwesomeIcon icon={"fa-brands fa-aws"} /> */}
-      <span>{name}</span>
-      <span className="m-4">•</span>
-    </div>
+    <span 
+      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-colors"
+      style={{
+        background: "rgba(var(--color-primary), 0.08)",
+        color: "rgb(var(--color-text))",
+        border: "1px solid rgba(var(--color-primary), 0.2)",
+      }}
+    >
+      {icon && <span className="text-base">{icon}</span>}
+      {name}
+    </span>
   );
 };
 

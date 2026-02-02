@@ -10,6 +10,9 @@ interface ProjectCardProps {
   projectLink: string;
   skills: string[];
   linkType: string;
+  demoLink?: string;
+  devpostLink?: string;
+  date?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -20,6 +23,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   projectLink,
   skills,
   linkType,
+  demoLink,
+  devpostLink,
+  date,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -28,33 +34,80 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   return (
-    <div
-      className="flex flex-col justify-between items-center rounded-lg p-6 shadow-md border hover:bg-slate-800 hover:cursor-pointer transform transition duration-300 hover:scale-105"
+    <article
       onClick={handleClick}
+      className="flex flex-col justify-between rounded-xl overflow-hidden border transition-all duration-200 cursor-pointer"
+      style={{
+        background: "rgba(var(--color-primary), 0.02)",
+        borderColor: "rgba(var(--color-primary), 0.15)",
+      }}
     >
-      <div className="my-3">
-        <h3 className="text-xl font-semibold mb-4">{title}</h3>
-        <p className="text-gray-300 mb-4">{summary}</p>
-        <div className="flex flex-wrap justify-center">
-          {skills.map((skill, index) => (
-            <div key={index} className="relative mr-2 mb-2">
-              <div className="px-2 py-1 bg-blue-500 text-white rounded-2xl cursor-default text-sm">
-                <span>{skill}</span>
-              </div>
-            </div>
+      {/* Banner image (consistent ratio) */}
+      {images && images.length > 0 && (
+        <div className="w-full h-[180px] sm:h-[160px] lg:h-[200px] overflow-hidden">
+          <img
+            src={images[0]}
+            alt={title}
+            className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
+            style={{ display: "block" }}
+          />
+        </div>
+      )}
+
+       <div className="p-5 flex flex-col gap-4">
+         <div>
+           <h3 className="text-lg sm:text-xl font-semibold">{title}</h3>
+           {date && <p className="text-xs text-[rgb(var(--color-muted))] mt-1">{date}</p>}
+           <p className="mt-2 text-[rgb(var(--color-muted))] text-sm">{summary}</p>
+         </div>
+
+        <div className="flex flex-wrap gap-2 mt-2">
+          {skills.map((skill, idx) => (
+            <span
+              key={idx}
+              className="text-xs px-2 py-1 rounded-full"
+              style={{
+                background: "rgba(var(--color-primary),0.12)",
+                color: "rgb(var(--color-text))",
+              }}
+            >
+              {skill}
+            </span>
           ))}
         </div>
-      </div>
 
-      <button
-        className="font-semibold border hover:bg-gradient-to-r from-blue-700 via-sky-700 to-sky-600 hover:border-2 transform transition duration-300 hover:cursor-pointer text-white px-4 py-2 rounded-md"
-        onClick={(e) => {
-          e.stopPropagation();
-          window.open(projectLink, "_blank");
-        }}
-      >
-        {linkType}
-      </button>
+        <div className="mt-4 flex items-center justify-end gap-2">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(projectLink, "_blank");
+            }}
+            className="px-4 py-2 rounded-md font-semibold transition-all"
+            style={{
+              background: "rgb(var(--color-primary))",
+              color: "rgb(10, 10, 15)",
+            }}
+          >
+            {linkType}
+          </button>
+          {devpostLink && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(devpostLink, "_blank");
+              }}
+              className="px-4 py-2 rounded-md font-semibold border transition-all"
+              style={{
+                borderColor: "rgba(var(--color-primary), 0.3)",
+                color: "rgb(var(--color-text))",
+                background: "transparent",
+              }}
+            >
+              DevPost
+            </button>
+          )}
+        </div>
+      </div>
 
       {isModalOpen && (
         <ProjectDetailsModal
@@ -63,9 +116,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           images={images}
           isOpen={isModalOpen}
           setIsOpen={setIsModalOpen}
+          projectLink={projectLink}
+          linkType={linkType}
+          demoLink={demoLink}
+          devpostLink={devpostLink}
+          date={date}
         />
       )}
-    </div>
+
+      <style jsx>{`
+        article:hover {
+          transform: translateY(-2px);
+          border-color: rgba(var(--color-primary), 0.3);
+        }
+      `}</style>
+    </article>
   );
 };
 

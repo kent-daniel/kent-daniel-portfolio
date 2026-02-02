@@ -5,85 +5,95 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Experience = () => {
   return (
-    <div className="max-w-4xl mx-auto p-8 mb-4" id="experience">
-      <h2 className="text-4xl font-semibold mb-4 text-center ">
+    <div className="w-[min(96%,1100px)] mx-auto p-6 mb-8" id="experience">
+      <h2 className="text-3xl sm:text-4xl font-semibold mb-6 text-[rgb(var(--color-text))]">
         Experience ⭐️
       </h2>
-      <div className="my-8 flex justify-center items-center">
-        <div className="inline-block mr-3 border  hover:bg-gray-700 rounded-lg ">
-          <a
-            href="https://www.linkedin.com/in/kent-daniel/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex min-w-min  text-white font-semibold py-2 px-4 items-center"
-          >
-            <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5 mr-2" />
-            <span className="ml-2">LinkedIn Profile</span>
-          </a>
-        </div>
-        <div className="inline-block">
-          <a
-            href="/Kent_Daniel_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            download="Kent_Daniel_Resume.pdf"
-            className="flex min-w-min bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg items-center"
-          >
-            Download Resume
-            <FontAwesomeIcon icon={faDownload} className="w-5 h-5 ml-2" />
-          </a>
-        </div>
+
+      <div className="my-6 flex flex-wrap gap-3">
+        <a
+          href="https://www.linkedin.com/in/kent-daniel/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-md border"
+          style={{
+            borderColor: "rgba(var(--color-muted),0.12)",
+            color: "rgb(var(--color-text))",
+            background: "transparent",
+          }}
+        >
+          <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" />
+          LinkedIn Profile
+        </a>
+
+        <a
+          href="/Kent_Daniel_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download="Kent_Daniel_Resume.pdf"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-md font-semibold transition-all"
+          style={{
+            background: "rgb(var(--color-primary))",
+            color: "rgb(10, 10, 15)",
+          }}
+        >
+          Download Resume
+          <FontAwesomeIcon icon={faDownload} className="w-5 h-5" />
+        </a>
       </div>
 
       <div className="space-y-8">
         <ExperienceCard
-          date="Mar 2024 - Present"
-          title="Monash University Teaching Assistant"
-          organization="Monash University - Part-time"
+          date="Feb 2025 - Present"
+          title="Associate Software Engineer"
+          organization="REA Group (realestate.com.au)"
           description={[
-            "Taught 3rd year level unit FIT3178 iOS development with Swift and UIKit",
-            "Responsible for running one of the lab classes with 15 students",
-            "Supported and mentored students with practice lab exercises",
-            "Responsible for marking exercises and assignments",
-          ]}
-        />
-        <ExperienceCard
-          date="Sep 2023 - Dec 2023"
-          title="Freelance Fullstack Developer"
-          organization="Self-Employed"
-          description={[
-            "Creating an end-to-end internal software for managing and recording contracts and legal documents",
-            "Conducted UX workshops, gathered requirements, and collaborated with clients to ensure optimal user experiences.",
-            "Led a team with another student developer and a UX designer, in a scrum-based workflow using JIRA and Confluence.",
-            "Acted as a full-stack developer, using React and Firebase serverless architecture, GitHub actions for CI/CD, and Cypress for E2E tests",
-            "Successfully rolled out and tested the software, reporting a significant time-saving impact of 45%.",
+            "Build high-quality features across microservices and event-driven architecture, using React/TypeScript, Kotlin (Spring Boot), Python, and AWS.",
+            "Productionised a config driven data ingester tool to support multiple data schemas and file types with AWS Batch, and Airflow. Reducing new data schema onboarding lead time by 50%.",
+            "Led a data dashboard initiative, prototyping a low-code solution that fast-tracked delivery and reduced L3 support tickets through improved data observability.",
+            "Spearheaded a technical spike and knowledge-sharing for migrating workloads to an in-house Kubernetes (K8s) platform, directly influencing the team's migration strategy.",
+            "Set up a scalable kafka infrastructure with AWS MSK and Glue Schema Registry to enrich 2M+ user profile data in real time.",
+            "Collaborated with Heads of Product and Engineering Managers to lead a winning Hackday project through the internal incubator, proposing and implementing technical solutions to transform a hackathon project to an AI experiment to make property listings interactive.",
+            "Delivered 4 knowledge sharing sessions on Serverless AI coding agents, fine-tuning YOLO model, and Google Cloud Run, contributing to high performance culture.",
           ]}
         />
 
         <ExperienceCard
-          date="Jul 2023 - Dec 2023"
-          title="Software Engineer Intern"
-          organization="Reecetech"
+          date="Sep 2023 - Present"
+          title="Freelance Software Engineer"
+          organization="Self Employed"
           description={[
-            "Full stack iOS development using UIKit, Combine, and MVVM pattern with UI development, backend integration, analytics, and testing with XCTest",
-            "Contributing to team agile ceremonies",
-            "Full stack web development with Angular, Spring Boot, and AWS event-driven architecture",
-            "Managing releases and deployment to production with GitHub and Jira",
-            "Developed a mobile app MVP utilizing OCR and NLP technology for easier form-filling",
-            "Implemented backend API optimization mechanism that improved system speed by 15%",
+            "Pitched and delivered a contract project with a local Melbourne grocery store to build an automation for their vendor management process, built internal dashboard with Next.js, React, Supabase and Google Cloud Run.",
+            "Developed and maintained Magic Regex Generator, a web application that generates, executes, and tests regular expressions using an AI coding agent, built using Next.js, React, AI SDK, Posthog for analytics, and Cloudflare Durable Objects. The application was launched to Product Hunt and has over 250+ Monthly Active Users to date.",
+            "Served as the lead developer and consultant in a team of 3, conducting UX workshops and planning team sprints using JIRA. Developed and implemented an end-to-end internal software application for managing and recording contracts and legal documents using React, Typescript, Firebase, and GitHub Actions for CI/CD. This resulted in a time-saving impact of 45%.",
           ]}
         />
 
         <ExperienceCard
-          date="Jul 2023 - Dec 2023"
-          title="Student Investment Analyst"
-          organization="Monash Student Managed Fund (MSMF)"
+          date="Feb 2024 - Jun 2024"
+          title="Teaching Assistant"
+          organization="Monash University"
           description={[
-            "Conducted Equity Research, Risk and competitive advantage analysis, and DCF (Discounted Cash Flow) valuation of Procter and Gamble",
-            "Actively participated in weekly team huddles, contributing insights and findings to investment ideas",
-            "Presented and pitched the final investment recommendation with the team and defended the investment thesis to a panel of investment bankers and hedge fund managers, adeptly answering questions and demonstrating a deep understanding of the subject matter.",
+            "Taught 3rd year level unit FIT3178 iOS development with Swift and UIKit. Responsible for running one of the lab classes with 15 students.",
           ]}
         />
+      </div>
+
+      {/* View More Button */}
+      <div className="mt-8 text-center">
+        <a
+          href="/Kent_Daniel_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-md font-medium border transition-all"
+          style={{
+            borderColor: "rgba(var(--color-primary), 0.3)",
+            color: "rgb(var(--color-text))",
+            background: "transparent",
+          }}
+        >
+          View More Experience
+        </a>
       </div>
     </div>
   );

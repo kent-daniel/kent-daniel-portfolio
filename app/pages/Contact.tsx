@@ -5,11 +5,12 @@ const Contact = () => {
   return (
     <div className="text-center my-24" id="contact">
       <ContactForm />
-      <span>
+      <span style={{ color: "rgb(var(--color-muted))" }}>
         or email me at
         <a
           href="mailto:kentdaniel0328@gmail.com"
-          className="text-blue-400 hover:text-blue-200 ml-2"
+          className="ml-2 hover:underline"
+          style={{ color: "rgb(var(--color-primary))" }}
         >
           kentdaniel0328@gmail.com
         </a>

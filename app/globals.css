@@ -3,21 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Dark theme by default - cool cyan/purple palette */
+  --color-bg: 10, 10, 15;
+  --color-text: 240, 245, 255;
+  --color-muted: 156, 163, 175;
+  --color-primary: 86, 195, 204;
+  --color-accent: 139, 92, 246;
+  --shadow-color: 86, 195, 204;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Light theme fallback */
+@media (prefers-color-scheme: light) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --color-bg: 255, 255, 255;
+    --color-text: 17, 24, 39;
+    --color-muted: 107, 114, 128;
+    --color-primary: 14, 165, 233;
+    --color-accent: 124, 58, 237;
+    --shadow-color: 14, 165, 233;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: rgb(var(--color-text));
+  background: rgb(var(--color-bg));
 }
 
 html {

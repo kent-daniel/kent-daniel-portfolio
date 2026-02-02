@@ -27,18 +27,31 @@ function Modal({ title, children, isOpen, setIsOpen }: Props) {
   return createPortal(
     isOpen ? (
       <dialog
-        className="fixed left-0 top-0 w-full h-full bg-black bg-opacity-20 z-50 overflow-auto backdrop-blur flex justify-center items-center transition-opacity duration-500"
+        className="fixed left-0 top-0 w-full h-full z-50 overflow-auto backdrop-blur-sm flex justify-center items-center transition-opacity duration-500"
+        style={{
+          background: "rgba(0, 0, 0, 0.7)",
+        }}
         onClick={handleClose}
       >
         <div
-          className="bg-white border-slate-500 mx-4 my-8 p-8 rounded-lg shadow-lg max-w-screen-lg max-h-screen-md	"
+          className="mx-4 my-8 p-8 rounded-lg shadow-lg max-w-screen-lg max-h-[90vh] overflow-y-auto"
+          style={{
+            background: "rgb(var(--color-bg))",
+            border: "1px solid rgba(var(--color-primary), 0.2)",
+          }}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex justify-between">
-            <h1 className="font-bold text-xl">{title}</h1>
+          <div className="flex justify-between items-start mb-4">
+            <h1 
+              className="font-bold text-xl"
+              style={{ color: "rgb(var(--color-text))" }}
+            >
+              {title}
+            </h1>
             <button
               type="button"
-              className="text-gray-600 hover:text-gray-800 focus:outline-none"
+              className="hover:opacity-70 focus:outline-none transition-opacity"
+              style={{ color: "rgb(var(--color-muted))" }}
               onClick={handleClose}
             >
               <svg
@@ -57,7 +70,7 @@ function Modal({ title, children, isOpen, setIsOpen }: Props) {
               </svg>
             </button>
           </div>
-          <div className="flex flex-col items-center mt-3">{children}</div>
+          <div className="flex flex-col items-center">{children}</div>
         </div>
       </dialog>
     ) : null,

@@ -8,8 +8,8 @@ import Projects from "./pages/Projects";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-neutral-900">
-      <div className="w-3/4 min-h-screen">
+    <main className="flex min-h-screen flex-col items-center justify-between bg-[rgb(var(--color-bg))]">
+      <div className="w-[min(96%,1100px)] mx-auto">
         <Navbar />
         <Hero />
         <Skills />

@@ -6,8 +6,17 @@ import React from "react";
 const ContactForm: React.FC = () => {
   return (
     <div className="min-h-min flex justify-center items-center mb-3">
-      <div className="bg-neutral-700 bg-opacity-70 border border-slate-200 backdrop-blur-lg rounded-lg p-8 max-w-md w-full space-y-6">
-        <h2 className="text-2xl font-semibold text-center text-white">
+      <div 
+        className="rounded-lg p-8 max-w-md w-full space-y-6"
+        style={{
+          background: "rgba(var(--color-primary), 0.03)",
+          border: "1px solid rgba(var(--color-primary), 0.1)",
+        }}
+      >
+        <h2 
+          className="text-2xl font-semibold text-center"
+          style={{ color: "rgb(var(--color-text))" }}
+        >
           Contact Me
         </h2>
         <form
@@ -16,7 +25,11 @@ const ContactForm: React.FC = () => {
           className="space-y-4 text-start"
         >
           <div>
-            <label htmlFor="name" className="block font-medium text-white">
+            <label 
+              htmlFor="name" 
+              className="block font-medium"
+              style={{ color: "rgb(var(--color-text))" }}
+            >
               Your Name:
             </label>
             <input
@@ -24,23 +37,53 @@ const ContactForm: React.FC = () => {
               id="name"
               name="name"
               required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring-blue-200 bg-gray-100 text-gray-800 px-3 py-2"
+              className="mt-1 block w-full rounded-md shadow-sm px-3 py-2 outline-none transition-all"
+              style={{
+                background: "rgba(var(--color-bg), 0.5)",
+                border: "1px solid rgba(var(--color-muted), 0.2)",
+                color: "rgb(var(--color-text))",
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = "rgb(var(--color-primary))";
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = "rgba(var(--color-muted), 0.2)";
+              }}
             />
           </div>
           <div>
-            <label htmlFor="email" className="block font-medium text-white">
+            <label 
+              htmlFor="email" 
+              className="block font-medium"
+              style={{ color: "rgb(var(--color-text))" }}
+            >
               Your Email:
             </label>
             <input
-              type="text"
+              type="email"
               id="email"
               name="email"
               required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring-blue-200 bg-gray-100 text-gray-800 px-3 py-2"
+              className="mt-1 block w-full rounded-md shadow-sm px-3 py-2 outline-none transition-all"
+              style={{
+                background: "rgba(var(--color-bg), 0.5)",
+                border: "1px solid rgba(var(--color-muted), 0.2)",
+                color: "rgb(var(--color-text))",
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = "rgb(var(--color-primary))";
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = "rgba(var(--color-muted), 0.2)";
+              }}
             />
           </div>
           <div className="relative">
-            <label htmlFor="message" className="block font-medium ">
+            <label 
+              htmlFor="message" 
+              className="block font-medium"
+              style={{ color: "rgb(var(--color-text))" }}
+            >
               Message:
             </label>
             <textarea
@@ -48,12 +91,27 @@ const ContactForm: React.FC = () => {
               name="message"
               rows={4}
               required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 bg-gray-100 text-gray-800 px-3 py-2"
+              className="mt-1 block w-full rounded-md shadow-sm px-3 py-2 outline-none transition-all"
+              style={{
+                background: "rgba(var(--color-bg), 0.5)",
+                border: "1px solid rgba(var(--color-muted), 0.2)",
+                color: "rgb(var(--color-text))",
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = "rgb(var(--color-primary))";
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = "rgba(var(--color-muted), 0.2)";
+              }}
             ></textarea>
           </div>
           <button
             type="submit"
-            className="font-bold w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="font-bold w-full py-2 px-4 rounded-md transition-all"
+            style={{
+              background: "rgb(var(--color-primary))",
+              color: "rgb(10, 10, 15)",
+            }}
           >
             Submit
           </button>
